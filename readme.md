@@ -1,6 +1,9 @@
-kubectl create ns prometheus
+
 
 # Add helm repositories for Prometheus
+
+`kubectl create ns prometheus`
+
 ```
 helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
