@@ -1,0 +1,24 @@
+helm upgrade prometheus prometheus-community/prometheus \
+  --namespace prometheus \
+  --set alertmanager.enabled=true \
+  --set alertmanager.persistentVolume.storageClass="gp2" \
+  --set alertmanager.persistentVolume.size="10Gi" \
+  --set server.persistentVolume.storageClass="gp2" \
+  --set server.persistentVolume.size="40Gi"
+
+helm upgrade prometheus prometheus-community/prometheus \
+  --namespace prometheus \
+  --set alertmanager.enabled=true \
+  --set alertmanager.persistence.storageClass="gp2" \
+  --set alertmanager.persistence.size="10Gi" \
+  --set server.persistentVolume.storageClass="gp2" \
+  --set server.persistentVolume.size="40Gi"
+=============
+helm install grafana grafana/grafana \
+  --namespace grafana \
+  --set persistence.size="40Gi" \
+  --set persistence.storageClassName="gp2" \
+  --set persistence.enabled=true \
+  --set adminPassword='Stro456@Password' \
+  --values grapana.yaml \
+  --set service.type=NodePort
